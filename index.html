@@ -8,9 +8,15 @@
   <script src="/script.js"></script>
 </head>
 <body>
+  <h1>Solitario 1, 2, 3</h1>
+  <p>Tocá el mazo para sacar cartas y hazlo contando <i>uno, dos, tres... uno, dos, tres...</i>.</br>Si en algún momento sale un 1, un 2 o un 3, y coincide mientras dices <i>uno, dos o tres</i>, perdiste.</p>
+  <p>Este solitario nunca sale bien.</p>
   <span class="prob" data-js="prob"></span>
   <br>
-  <button type="button" class="deck" data-js="deck" aria-label="Mazo">🃏</button>
+  <button type="button" class="deck" data-js="deck" aria-label="Mazo">
+    <img src="/cartas/mazo.jpg" class="deck__img" alt="">
+  </button>
+  <img class="deck__img" data-js="img" alt="">
   <ol class="pile" data-js="pile"></ol>
   <span class="result" data-js="result"></span>
 </body>
