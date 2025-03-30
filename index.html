@@ -9,14 +9,37 @@
 </head>
 <body>
   <h1>Solitario 1, 2, 3</h1>
-  <p>Tocá el mazo para sacar cartas y hazlo contando <i>uno, dos, tres... uno, dos, tres...</i>.</br>Si en algún momento sale un 1, un 2 o un 3, y coincide mientras dices <i>uno, dos o tres</i>, perdiste.</p>
+  <p>
+    Tocá el mazo para sacar cartas y hazlo contando <i>uno, dos, tres... uno, dos, tres...</i>.</br>
+    Si en algún momento sale un 1, un 2 o un 3, y coincide mientras dices <i>uno, dos o tres</i>, perdiste.
+  </p>
   <p>Este solitario nunca sale bien.</p>
   <span class="prob" data-js="prob"></span>
   <br>
-  <button type="button" class="deck" data-js="deck" aria-label="Mazo">
-    <img src="/cartas/mazo.jpg" class="deck__img" alt="">
-  </button>
-  <img class="deck__img" data-js="img" alt="">
+  <h2 class="counts">
+    <span class="counts__deck">Cartas restantes: <span data-js="deck-count">48</span></span>
+    <span class="counts__current" data-js="current-count">1</span>
+  </h2>
+  <div class="table">
+    <button type="button" class="deck" data-js="deck" aria-label="Mazo">
+      <img src="/cartas/mazo.jpg" data-js="deck-img" class="deck__img" alt="Click para dar vuelta una carta">
+    </button>
+    <div>
+      <img src="" class="pile__img" data-js="pile-img" alt="">
+    </div>
+  </div>
+  <div class="msg lose-msg" data-js="lose">
+    <span>¡Perdiste!</span>
+    <button type="button" class="restart btn" data-js="restart">
+      Volver a jugar
+    </button>
+  </div>
+  <div class="msg win-msg" data-js="win">
+    <span>¡Ganaste!</span>
+    <button type="button" class="restart btn" data-js="restart">
+      Volver a jugar
+    </button>
+  </div>
   <ol class="pile" data-js="pile"></ol>
   <span class="result" data-js="result"></span>
 </body>
