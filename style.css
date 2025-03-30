@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@400;700&display=swap');
 body {
-  font-size: 2rem;
+  font-size: 1rem;
+  font-family: "Roboto Condensed", sans-serif;
+  background-color: black;
+  color: white;
 }
 
 ol {
@@ -17,4 +21,9 @@ li {
   border: 0;
   cursor: pointer;
   font-size: 10rem;
+}
+img {
+  height: 400px;
+  max-width: 100%;
+  width: auto;
 }

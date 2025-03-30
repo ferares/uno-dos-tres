@@ -3,7 +3,7 @@ let lost = false
 const state = { ones: 4, twos: 4, threes: 4, cards: 48 }
 
 function getDeck() {
-  const suits = ["🪙", "🍷", "⚔️", "🪵"]
+  const suits = ["oro", "copa", "espada", "basto"]
   const deck = []
   for (const suit of suits) {
     for (let cardIndex = 1; cardIndex <= 12; cardIndex++) {
@@ -43,6 +43,7 @@ function draw(deck) {
     return
   }
   state.cards--
+  const cardImg = document.querySelector("[data-js=img]").src = `/cartas/${card.suit}-${card.number}.jpg`
   const cardElement = document.createElement("li")
   cardElement.innerText = `${currentNumber + 1} -> ${card.suit} ${card.number}`
   pile.append(cardElement)
