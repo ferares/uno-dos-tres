@@ -3,6 +3,12 @@ let lost = false
 let deck = shuffle(getDeck())
 const state = { ones: 4, twos: 4, threes: 4, cards: 48 }
 
+function numberWord(count) {
+  if (count === 1) return "¡Uno!" 
+  if (count === 2) return "¡Dos!" 
+  if (count === 3) return "¡Tres!" 
+}
+
 function getDeck() {
   const suits = ["oro", "copa", "espada", "basto"]
   const deck = []
@@ -37,7 +43,6 @@ function updateProb(cardNumber) {
 
 function draw() {
   if (lost) return
-  const pile = document.querySelector("[data-js=pile]")
   const card = deck.pop()
   if (!card) {
     document.querySelector("[data-js=win]").classList.add("show")
@@ -46,17 +51,13 @@ function draw() {
   }
   state.cards--
   document.querySelector("[data-js=pile-img]").src = `/cartas/${card.suit}-${card.number}.jpg`
-  document.querySelector("[data-js=current-count]").innerText = currentNumber + 1
+  document.querySelector("[data-js=current-count]").innerText = numberWord(currentNumber + 1)
   document.querySelector("[data-js=deck-count]").innerText = state.cards
-  const cardElement = document.createElement("li")
-  cardElement.innerText = `${currentNumber + 1} -> ${card.suit} ${card.number}`
-  pile.append(cardElement)
   if (card.number === currentNumber + 1) {
     lost = true
     document.querySelector("[data-js=lose]").classList.add("show")
     return
   }
-  if (currentNumber === 2) pile.append(document.createElement("li"))
   currentNumber = (currentNumber + 1) % 3
   updateProb(card.number)
 }
@@ -69,11 +70,10 @@ function restart() {
   state.twos = 4
   state.threes = 4
   deck = shuffle(getDeck())
-  document.querySelector("[data-js=pile]").innerText = ""
   document.querySelector("[data-js=pile-img]").src = ""
     document.querySelector("[data-js=deck-img]").src = "/cartas/mazo.jpg"
   document.querySelector("[data-js=deck-count]").innerText = ""
-  document.querySelector("[data-js=current-count]").innerText = currentNumber + 1
+  document.querySelector("[data-js=current-count]").innerText = numberWord(currentNumber + 1)
   document.querySelector("[data-js=deck-count]").innerText = state.cards
   document.querySelector("[data-js=lose]").classList.remove("show")
   document.querySelector("[data-js=win]").classList.remove("show")
